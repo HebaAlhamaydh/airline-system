@@ -1,7 +1,5 @@
 'use strict';
 const events = require('../event');
-// const { faker } = require('@faker-js/faker');
-
 
 
 events.on('new-flight', newFlight);
