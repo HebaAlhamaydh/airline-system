@@ -2,8 +2,6 @@
 const events = require('../event');
 
 
-
-
 events.on('new-flight', newFlight);
 function newFlight(Flight){
     
