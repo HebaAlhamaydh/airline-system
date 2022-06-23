@@ -1,0 +1,23 @@
+{
+  "name": "airline-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "system.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HebaAlhamaydh/airline-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HebaAlhamaydh/airline-system/issues"
+  },
+  "homepage": "https://github.com/HebaAlhamaydh/airline-system#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0"
+  }
+}
