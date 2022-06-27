@@ -1,9 +1,13 @@
 'use strict';
-const events = require('../event');
+require('dotenv').config();
 const { faker } = require('@faker-js/faker');
 
+const io = require('socket.io-client');
+let host = `http://localhost:${process.env.PORT}/`;
+//client connected to server
+const systemConnection = io.connect(host);
+
 setInterval(() => {
-    
     let name = faker.name.findName();
     let recentDate = faker.date.future();
     let flightID =faker.datatype.uuid();
@@ -21,10 +25,10 @@ setInterval(() => {
             };
             
     console.log(`Manager: new flight with ID ${Flight.Details.flightID} have been scheduled`) ;
-    events.emit('new-flight', Flight);
+    systemConnection.emit('new-flight', Flight);
 }, 10000)
 
-events.on('arrived', flightArrived);
+systemConnection.on('arrived', flightArrived);
 function flightArrived(Flight){
     console.log(`Manager: we’re greatly thankful for the amazing flight, ${Flight.Details.pilot}`);
 }
