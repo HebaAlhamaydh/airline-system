@@ -1,5 +1,5 @@
 # airline-system
-build a control system for an Airline (for example Royal Jordanian Airlines) where I will keep tracking each flight status by contacting the pilot of that flight who in turn will inform the manager and the system when a flight took-off and arrived.
+use socket.io instead of Node Events to handle  connections between multiple system components, which in turn facilitate real-time communication and allow bi-directional communication between client and server.
 
 ## UML Diagram
-![](./UML.png)
+![](./UML2.png)
