@@ -9,10 +9,12 @@ function newFlight(payload){
   console.log(payload) ; 
 }
 
+
 events.on('took-off', tookOffFlight);
 function tookOffFlight(payload){
     console.log(payload) ; 
 }
+
 
 events.on('arrived', flightArrived);
 function flightArrived(payload){
