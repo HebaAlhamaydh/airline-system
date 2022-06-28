@@ -15,18 +15,20 @@ flightConnection.on('connection', (socket) => {
 })
 
 ioServer.on('connection', (socket) => {
+  //come from manager
   socket.on('new-flight', newFlight);
   function newFlight(payload){
   console.log(payload) ;
+  //emit to pilot in namespace
   flightConnection.emit('new-flight',payload);
+  //emit to pilot in general
   ioServer.emit('new-flight',payload);
   }
- 
-  
-
+ //from pilot
   socket.on('arrived', flightArrived);
   function flightArrived(payload){
   console.log(payload) ; 
+  //to manager
   ioServer.emit('arrived',payload)
   
   }
