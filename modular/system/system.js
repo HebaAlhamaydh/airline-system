@@ -22,8 +22,10 @@ flightConnection.on('connection', (socket) => {
 })
 /////////////ioServer////////////
 ioServer.on('connection', (socket) => {
+  //come from manager
   socket.on('new-flight', newFlight);
   function newFlight(payload){
+
 
      const id = payload.Details.flightID;
     //add payload to object
@@ -34,9 +36,19 @@ ioServer.on('connection', (socket) => {
     ioServer.emit('new-flight',payload);
   }
  
+
+  console.log(payload) ;
+  //emit to pilot in namespace
+  flightConnection.emit('new-flight',payload);
+  //emit to pilot in general
+  ioServer.emit('new-flight',payload);
+  }
+ //from pilot
+
   socket.on('arrived', flightArrived);
   function flightArrived(payload){
   console.log(payload) ; 
+  //to manager
   ioServer.emit('arrived',payload)
   
   }
